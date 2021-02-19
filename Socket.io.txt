@@ -1,0 +1,58 @@
+# WEBSOCKET
+
+Un websocket a diferencia del protocolo HTTP establece (y mantiene abierta) una comunicación bidireccional entre un servidor y un cliente permitiendo que ambos puedan enviar estímulos al otro en tiempo real.
+Una de las ventajas que tiene es su bajo consumo de banda ancha, además todos los navegadores implementan websockets.
+
+Alguna de las cosas que puedes construir con websocket: 
+
+	- Juegos multijugador.
+	- Herramientas colaborativas (chats, slack, trello, etc)
+	- Herramientas de dibujo onlin
+	- CRUDs en tiempo real.
+	- Sistema de notificaciones.
+
+
+# SOCKET.IO
+
+Esta librería de JS (también está disponible para otros lenguajes) nos permite implementar websockets tanto desde el lado del servidor como del lado del navegador (cliente).
+
+## Pasos a seguir:
+
+	1) Crear la estructura de carpetas "Servidor / Cliente".
+	
+	2) En la carpeta del servidor crear un proyecto Node.js.
+		
+		a) Abrimos la terminal, nos dirijimos a la carpeta.
+		b) Introducimos el comando "npm init --yes.
+
+	3) Instalar dependencias express, socket.io y nodemon (recarga el servidor automáticamente).
+
+		a) En la consola, introducimos el comando npm i express socket.io
+		b) Luego en la consola introducimos npm install -D nodemon
+		! A estas dependencias las podemos encontrar en el package.json en "dependencies".
+		! Al aplicar el flag "-D" hacemos que solo se instale en el ambiente de desarrollo y
+		  no en producción.
+
+	4) Creamos el index.js
+
+	5) Agregamos los siguientes scripts al package.json
+
+		a) "start": "node index.js"
+		b) "dev": "nodemon index.js"
+
+	Ahora podemos iniciar el servidor de dos maneras.
+
+		a) npm start: iniciará el servidor pero no actualizará cambios.
+		b) npm run dev: iniciará el servidor y se actualizará ante nuevos cambios.
+
+	6) Configuramos express en el servidor (index.js).
+
+	7) Configuramos el cliente.
+
+## Métodos
+
+	socket.emit - emite una señal a un socket en específico.
+
+	io.sockets.emit - emite a todos los sockets.
+
+	socket.broadcast - emite a todos los sockets menos al emisor.
